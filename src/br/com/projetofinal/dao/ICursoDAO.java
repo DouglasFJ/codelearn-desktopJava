@@ -10,7 +10,7 @@ public interface ICursoDAO {
 	public abstract void cadastrar(Curso curso);
 	public abstract ResultSet pesquisar(String nomeCurso);
 	public abstract ResultSet pesquisar(int id);
-	public abstract ResultSet alterar(int id, Curso curso);
+	public abstract void alterar(int id, Curso curso);
 	public abstract void excluir(int id);
 	
 }

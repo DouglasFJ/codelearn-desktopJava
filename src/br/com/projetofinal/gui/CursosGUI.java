@@ -141,7 +141,9 @@ public class CursosGUI extends JFrame implements ActionListener {
 			txtId.setText("");
 			
 		} else {
-			JOptionPane.showMessageDialog(null, "Alterou");
+			
+			new AlterarGUI(Integer.parseInt(txtAlterar.getText()));
+			
 		}
 	}
 }

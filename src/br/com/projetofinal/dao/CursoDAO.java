@@ -20,6 +20,7 @@ public class CursoDAO implements ICursoDAO {
 				state.executeUpdate();
 				conexao.close();
 				state.close();
+				System.out.println("Conexao fechada com sucesso");
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -67,7 +68,7 @@ public class CursoDAO implements ICursoDAO {
 	}
 
 	//METODO PARA ALTERAR OS ATRIBUTOS DE UM CURSO
-	public ResultSet alterar(int id, Curso curso) {
+	public void alterar(int id, Curso curso) {
 		Connection conexao = Conexao.conectar();
 		if (conexao != null) {
 			try {
@@ -75,15 +76,16 @@ public class CursoDAO implements ICursoDAO {
 				state.setString(1, curso.getNome());
 				state.setInt(2, curso.getCargaHoraria());
 				state.setInt(3, id);
-				ResultSet result = state.executeQuery();
-				return result;
+				state.executeUpdate();
+				state.close();
+				conexao.close();
+				System.out.println("Conexao fechada com sucesso");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}else {
 			System.err.println("A conexao com o banco não existe então não é possivel fazer a query");
 		}
-		return null;
 	}
 
 	//METODO PARA EXCLUIR UM CURSO
@@ -97,6 +99,7 @@ public class CursoDAO implements ICursoDAO {
 				state.executeUpdate();
 				conexao.close();
 				state.close();
+				System.out.println("Conexao fechada com sucesso");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
