@@ -168,10 +168,6 @@ public class TabelaCursos extends JFrame implements ActionListener {
 			
 			for(int i=0 ; i<modelo.getRowCount(); i++) {
 				if(Integer.parseInt( modelo.getValueAt(i, 0).toString()) == Integer.parseInt(txtId.getText())) {
-					System.out.println("Alterando linha: "+ i);
-					System.out.println("Total de Linhas: " + modelo.getRowCount());
-					//VERIFICA QUAL LINHA ESTÁ SELECIONADA PARA SELECIONAR OUTRA LINHA ANTES DE APAGAR -- APAGAR UMA LINHA SELECIONADA GERA UM ERRO
-					
 					modelo.setValueAt(txtNome.getText(), i, 1);
 					modelo.setValueAt(Integer.parseInt(txtCargaHoraria.getText()), i, 2);
 					
