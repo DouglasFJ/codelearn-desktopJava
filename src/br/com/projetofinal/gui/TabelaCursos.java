@@ -155,8 +155,6 @@ public class TabelaCursos extends JFrame implements ActionListener {
 					modelo.removeRow(i);
 				}
 			}
-			
-			
 
 		} else if (e.getSource() == btnAlterar) {
 			Curso curso = new Curso();
@@ -170,7 +168,6 @@ public class TabelaCursos extends JFrame implements ActionListener {
 				if(Integer.parseInt( modelo.getValueAt(i, 0).toString()) == Integer.parseInt(txtId.getText())) {
 					modelo.setValueAt(txtNome.getText(), i, 1);
 					modelo.setValueAt(Integer.parseInt(txtCargaHoraria.getText()), i, 2);
-					
 				}
 			}
 

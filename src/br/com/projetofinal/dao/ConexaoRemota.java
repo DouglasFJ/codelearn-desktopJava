@@ -4,18 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexao {
-
-	private static final String URL = "jdbc:mysql://localhost:3306/projetofinaldb";
-	private static final String USER = "root";
-	private static final String PASSWORD = "";
+public class ConexaoRemota {
+	private static final String URL = "jdbc:mysql://root:806srWxdBHIVfcW8qLUz@containers-us-west-115.railway.app:7336/railway";
 
 	private static Connection conn = null;
 	
 	public static Connection conectar() {
 		
 		try {
-			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			conn = DriverManager.getConnection(URL);
 			System.out.println("Conexão feita com sucesso");
 			
 		} catch (SQLException e) {

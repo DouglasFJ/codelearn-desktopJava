@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import br.com.projetofinal.dao.Conexao;
+import br.com.projetofinal.dao.ConexaoRemota;
 import br.com.projetofinal.dao.CursoDAO;
 import br.com.projetofinal.pojo.Curso;
 
@@ -136,7 +137,7 @@ public class CursosGUI extends JFrame implements ActionListener {
 		}else if(e.getSource() == btnExcluir) {
 			
 			new CursoDAO().excluir(Integer.parseInt(txtId.getText()));
-			Conexao.fecharConexao();
+			ConexaoRemota.fecharConexao();
 			JOptionPane.showMessageDialog(null, "O curso do ID: "+txtId.getText()+" foi excluido com sucesso");
 			txtId.setText("");
 			

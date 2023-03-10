@@ -11,7 +11,7 @@ public class CursoDAO implements ICursoDAO {
 
 	//METODO INSERIR NA TABELA
 	public void cadastrar(Curso curso) {
-		Connection conexao = Conexao.conectar();
+		Connection conexao = ConexaoRemota.conectar();
 		if (conexao != null) {
 			try {
 				PreparedStatement state = conexao.prepareStatement("INSERT INTO curso(nome_curso, carga_horaria) " + "VALUES (? , ?)");
@@ -31,7 +31,7 @@ public class CursoDAO implements ICursoDAO {
 
 	//METODO PARA PESQUISAR PELO NOME
 	public ResultSet pesquisar(String nomeCurso){
-		Connection conexao = Conexao.conectar();
+		Connection conexao = ConexaoRemota.conectar();
 		if (conexao != null) {
 			try {
 				PreparedStatement state = conexao.prepareStatement("SELECT * FROM curso WHERE nome_curso LIKE CONCAT('%', ? , '%')");
@@ -50,7 +50,7 @@ public class CursoDAO implements ICursoDAO {
 
 	//METODO PARA PESQUISAR POR ID
 	public ResultSet pesquisar(int id) {
-		Connection conexao = Conexao.conectar();
+		Connection conexao = ConexaoRemota.conectar();
 		if (conexao != null) {
 			try {
 				PreparedStatement state = conexao.prepareStatement("SELECT * FROM curso WHERE idcurso = ?");
@@ -69,7 +69,7 @@ public class CursoDAO implements ICursoDAO {
 
 	//METODO PARA ALTERAR OS ATRIBUTOS DE UM CURSO
 	public void alterar(int id, Curso curso) {
-		Connection conexao = Conexao.conectar();
+		Connection conexao = ConexaoRemota.conectar();
 		if (conexao != null) {
 			try {
 				PreparedStatement state = conexao.prepareStatement("UPDATE curso SET nome_curso = ?, carga_horaria = ? WHERE idcurso = ?");
@@ -91,7 +91,7 @@ public class CursoDAO implements ICursoDAO {
 	//METODO PARA EXCLUIR UM CURSO
 	public void excluir(int id) {
 		
-		Connection conexao = Conexao.conectar();
+		Connection conexao = ConexaoRemota.conectar();
 		if (conexao != null) {
 			try {
 				PreparedStatement state = conexao.prepareStatement("DELETE FROM curso WHERE idcurso = ?");
